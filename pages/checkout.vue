@@ -161,7 +161,6 @@ import Swal from "sweetalert2";
 import { StripeElementCard } from "@vue-stripe/vue-stripe";
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
-import key from "~/config/keys";
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 export default {

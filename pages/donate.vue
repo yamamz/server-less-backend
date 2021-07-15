@@ -146,7 +146,6 @@
 
 <script>
 import { StripeElementCard } from "@vue-stripe/vue-stripe";
-import key from "~/config/keys";
 
 import Swal from "sweetalert2";
 export default {
