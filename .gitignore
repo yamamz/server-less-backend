@@ -88,6 +88,5 @@ sw.*
 
 # Vim swap files
 *.swp
-
-*.sqlite3
-
+keys_prod.js
+keys_dev.js
