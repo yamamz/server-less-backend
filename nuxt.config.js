@@ -8,9 +8,9 @@ const env = {
   }
 }
 if (process.env.NODE_ENV === 'production') {
-  env.API_URL = 'https://meditationgrdn-raffle-app-api.herokuapp.com';
+  env.API_URL = '/';
 } else {
-  env.API_URL = `http://localhost:${env.PORT_API}`
+  env.API_URL = `/`
 }
 
 export default {
@@ -100,9 +100,9 @@ export default {
           autoFetch: true
         },
         endpoints: {
-          login: { url: '/api/auth/signin', method: 'post' },
-          logout: { url: '/api/auth/logout', method: 'post' },
-          user: { url: '/api/auth/session', method: 'get' },
+          login: { url: '/api/login', method: 'post' },
+          logout: { url: '/api/logout', method: 'post' },
+          user: { url: '/api/session', method: 'get' },
 
         }
       }

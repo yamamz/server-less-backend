@@ -5,6 +5,7 @@ let connection = require('./db/connection')
 const middy = require('@middy/core')
 const authJwt = require("./middleware/authJwt");
 const httpJsonBodyParser = require('@middy/http-json-body-parser')
+
 const login = async (event, context) => {
     await connection()
     console.log('here')
