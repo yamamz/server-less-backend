@@ -1,3 +1,4 @@
+
 const Tickets = require('./db/models/tickets')
 var bcrypt = require("bcryptjs");
 const jwt = require('jsonwebtoken');
@@ -7,6 +8,8 @@ const isJwtAuth = require("./middleware/authJwt");
 const isAdmin = require('./middleware/isAdmin')
 const verifySignUp = require('./middleware/verifySignUp')
 const httpJsonBodyParser = require('@middy/http-json-body-parser')
+require('./db/models/draws')
+require('./db/models/users')
 const ticketByDraw = async (event, context) => {
 
     await connection()
@@ -22,7 +25,7 @@ const ticketByDraw = async (event, context) => {
                 user: id
             }
         ).populate({ path: 'user', select: '_id firstName lastName email contact' })
-            .populate('draw')
+            .populate({ path: 'draw' })
             .exec();
 
 

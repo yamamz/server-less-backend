@@ -8,7 +8,6 @@ module.exports = (opts = {}) => {
     const isAdmin = async (request) => {
         await connection()
         try {
-            console.log(request.event.userId)
             Users.findOne({ _id: request.event.userId }).then(user => {
                 if (user.role === "admin") {
                     return;

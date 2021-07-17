@@ -7,6 +7,8 @@ const isJwtAuth = require("./middleware/authJwt");
 const isAdmin = require('./middleware/isAdmin')
 const verifySignUp = require('./middleware/verifySignUp')
 const httpJsonBodyParser = require('@middy/http-json-body-parser')
+require('./db/models/draws')
+require('./db/models/users')
 const ticketByDraw = async (event, context) => {
 
     await connection()

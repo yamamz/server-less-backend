@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
-
+require('./users')
+require('./draws')
 const ticketSchema = new mongoose.Schema({
     ticketNumber: {
         type: String,
@@ -23,10 +24,4 @@ const ticketSchema = new mongoose.Schema({
     timestamps: true
 })
 
-ticketSchema.methods.toJSON = function () {
-    return this.toObject()
-}
-
-const Tickets = mongoose.model('Tickets', ticketSchema)
-
-module.exports = Tickets
+module.exports = mongoose.model('Tickets', ticketSchema)

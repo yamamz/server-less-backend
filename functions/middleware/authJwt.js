@@ -1,8 +1,4 @@
 const jwt = require("jsonwebtoken");
-
-const Users = require('./../db/models/users')
-
-
 var bcrypt = require("bcryptjs");
 const defaults = {}
 

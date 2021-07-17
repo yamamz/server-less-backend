@@ -14,7 +14,7 @@ const drawGetAll = async (event, context) => {
         return { statusCode: 405, body: "Method Not Allowed" };
     }
     try {
-        const draws = await Draws.find({}).populate('tickets')
+        const draws = await Draws.find({})
             .exec();
         console.log(draws)
         return {
