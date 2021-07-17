@@ -1425,6 +1425,11 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-15.14.2.tgz#7af8ab20156586f076f4760bc1b3c5ddfffd1ff2"
   integrity sha512-dvMUE/m2LbXPwlvVuzCyslTEtQ2ZwuuFClDrOQ6mp2CenCg971719PTILZ4I6bTP27xfFFc+o7x2TkLuun/MPw==
 
+"@types/node@>=8.1.0":
+  version "16.3.3"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.3.3.tgz#0c30adff37bbbc7a50eb9b58fae2a504d0d88038"
+  integrity sha512-8h7k1YgQKxKXWckzFCMfsIwn0Y61UK6tlD6y2lOb3hTOIMlK3t9/QwHOhc81TwU+RMf0As5fj7NPjroERCnejQ==
+
 "@types/parse-json@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@types/parse-json/-/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
@@ -3635,6 +3640,11 @@ dot-prop@^5.2.0:
   integrity sha512-QM8q3zDe58hqUqjraQOmzZ1LIH9SWQJTlEKCH4kJ2oQvLZk7RbQXvtDM2XEq3fwkV9CCvvH4LA0AV+ogFsBM2Q==
   dependencies:
     is-obj "^2.0.0"
+
+dotenv@^10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-10.0.0.tgz#3d4227b8fb95f81096cdd2b66653fb2c7085ba81"
+  integrity sha512-rlBi9d8jpv9Sf1klPjNfFAuWDjKLwTIJJ/VxtoTwIR6hnZxcEOQCZg2oIL3MWBYw5GpUDKOEnND7LXTbIpQ03Q==
 
 dotenv@^9.0.2:
   version "9.0.2"
@@ -6254,6 +6264,11 @@ node-res@^5.0.1:
     on-finished "^2.3.0"
     vary "^1.1.2"
 
+nodemailer@^6.6.3:
+  version "6.6.3"
+  resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-6.6.3.tgz#31fb53dd4d8ae16fc088a65cb9ffa8d928a69b48"
+  integrity sha512-faZFufgTMrphYoDjvyVpbpJcYzwyFnbAMmQtj1lVBYAUSm3SOy2fIdd9+Mr4UxPosBa0JRw9bJoIwQn+nswiew==
+
 normalize-path@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/normalize-path/-/normalize-path-2.1.1.tgz#1ab28b556e198363a8c1a6f7e6fa20137fe6aed9"
@@ -7712,7 +7727,7 @@ qs@6.7.0:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.7.0.tgz#41dc1a015e3d581f1621776be31afb2876a9b1bc"
   integrity sha512-VCdBRNFTX1fyE7Nb6FYoURo/SPe62QCaAyzJvUjwRaIsc+NePBEniHlvxFmmX56+HZphIGtV0XeCirBtpDrTyQ==
 
-qs@^6.9.4:
+qs@^6.6.0, qs@^6.9.4:
   version "6.10.1"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.10.1.tgz#4931482fa8d647a5aab799c5271d2133b981fb6a"
   integrity sha512-M528Hph6wsSVOBiYUnGf+K/7w0hNshs/duGsNXPUCLH5XAqjEtiPGwNONLV0tBH8NoGb0mvD5JubnUTrujKDTg==
@@ -8741,6 +8756,14 @@ strip-final-newline@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/strip-final-newline/-/strip-final-newline-2.0.0.tgz#89b852fb2fcbe936f6f4b3187afb0a12c1ab58ad"
   integrity sha512-BrpvfNAE3dcvq7ll3xVumzjKjZQ5tI1sEUIKr3Uoks0XUl45St3FlatVqef9prk4jRDzhW6WZg+3bk93y6pLjA==
+
+stripe@^8.163.0:
+  version "8.163.0"
+  resolved "https://registry.yarnpkg.com/stripe/-/stripe-8.163.0.tgz#8a3f726853cd9aba0b2fbd64e5f24e169d0ea71d"
+  integrity sha512-hbKZdiPWVLhE0tgo6OMub7zpQpyAGLV9YaYcFOYgiryYw40HXiQtBcZLYtxpp5VdhovOLZrPGARrWovPDbewfQ==
+  dependencies:
+    "@types/node" ">=8.1.0"
+    qs "^6.6.0"
 
 style-resources-loader@^1.4.1:
   version "1.4.1"

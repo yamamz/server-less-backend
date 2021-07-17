@@ -56,7 +56,7 @@ export default {
   },
   async created() {
     let response = await this.$axios.get(
-      "/api/ticket/getAllByUser/" + this.$auth.state.user._id
+      "/api/ticket-byUser?id=" + this.$auth.state.user._id
     );
     this.tickets = response.data.tickets;
   },

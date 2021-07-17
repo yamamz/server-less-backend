@@ -249,7 +249,7 @@ export default {
         this.isLoading(false);
       } else {
         try {
-          let response = await this.$axios.post("/api/payment/chargePayment", {
+          let response = await this.$axios.post("/api/ticket-payment", {
             amount: this.price,
             token: result.token.id,
             ticketPcs: this.ticketPcs,
@@ -267,7 +267,7 @@ export default {
             let pdfGenerator = await this.printTickets(response.data.tickets);
             pdfGenerator.download();
             pdfGenerator.getBase64(async (data) => {
-              await this.$axios.post("/api/payment/sendEmailReciept", {
+              await this.$axios.post("/api/send-email", {
                 email: this.$auth.state.user.email,
                 ticketEntries: response.data.tickets
                   .map((el) => el.ticketNumber)
@@ -383,22 +383,10 @@ export default {
       return pdfDocGenerator;
     },
 
-    async cancelCheckout() {
-      try {
-        let response = await this.$axios.post("/api/payment/checkoutCancel", {
-          setupIntentId: this.setupIntentId,
-        });
-        this.isCheckOut = false;
-
-        console.log(response);
-      } catch (err) {
-        console.log(err);
-      }
-    },
     async checkoutCart() {
       this.isCheckOut = true;
       this.loading = true;
-      let response = await this.$axios.post("/api/payment/ckeckoutPayment", {
+      let response = await this.$axios.post("/api/ticket-payment", {
         ticketPcs: this.ticketPcs,
       });
       this.loading = false;
@@ -438,10 +426,8 @@ export default {
     },
   },
   async mounted() {
-    let stripePublicKey = await this.$axios.get(
-      "/api/payment/getStripePublicKey"
-    );
-    this.stripe = Stripe(stripePublicKey.data.key);
+    let stripePublicKey = await this.$axios.get("/api/get-stripe-public-key");
+    this.stripe = Stripe(stripePublicKey.data);
     var elements = this.stripe.elements();
 
     document.querySelector("button").disabled = true;
@@ -474,7 +460,7 @@ export default {
     this.card = card;
   },
   async created() {
-    let response = await this.$axios.get("/api/draw/getAll");
+    let response = await this.$axios.get("/api/draw-getAll");
     let filterActive = response.data.draws.filter((el) => el.active == true);
     if (filterActive.length > 0) {
       this.draw = filterActive[0];

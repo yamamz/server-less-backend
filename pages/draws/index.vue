@@ -500,11 +500,15 @@ export default {
           );
         } else {
           draw.active = val;
-          await this.$axios.put(`/api/draw/${draw._id}`, { active: val });
+          await this.$axios.put(`/api/draw-update?id=${draw._id}`, {
+            active: val,
+          });
         }
       } else {
         draw.active = val;
-        await this.$axios.put(`/api/draw/${draw._id}`, { active: val });
+        await this.$axios.put(`/api/draw-update?id=${draw._id}`, {
+          active: val,
+        });
       }
     },
     async addDraw() {
@@ -518,11 +522,11 @@ export default {
         this.error = "Some fields are required";
       } else {
         if (this.form.id == "") {
-          let response = await this.$axios.post("/api/draw/new", this.form);
+          let response = await this.$axios.post("/api/draw-add", this.form);
           this.draws.push(response.data);
         } else {
           let response = await this.$axios.put(
-            `/api/draw/${this.form.id}`,
+            `/api/draw-update?id=${this.form.id}`,
             this.form
           );
         }
@@ -575,7 +579,7 @@ export default {
     modal.style.display = "none";
   },
   async created() {
-    let response = await this.$axios.get("/api/draw/getAll");
+    let response = await this.$axios.get("/api/draw-getAll");
     this.draws = response.data.draws;
   },
 };

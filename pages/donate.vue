@@ -192,10 +192,8 @@ export default {
     },
   },
   async mounted() {
-    let stripePublicKey = await this.$axios.get(
-      "/api/payment/getStripePublicKey"
-    );
-    this.stripe = Stripe(stripePublicKey.data.key);
+    let stripePublicKey = await this.$axios.get("/api/get-stripe-public-key");
+    this.stripe = Stripe(stripePublicKey.data);
     var elements = this.stripe.elements();
 
     document.querySelector("button").disabled = true;
@@ -287,7 +285,7 @@ export default {
             this.isLoading(false);
             Swal.fire("Opps!", "All fields are required", "error");
           } else {
-            await this.$axios.post("/api/payment/donatePayment", {
+            await this.$axios.post("/api/donate", {
               amount: this.form.amount,
               token: result.token.id,
               fullname: this.form.fullname,

@@ -306,14 +306,11 @@ export default {
     async generateOfflineTickets() {
       try {
         if (this.ticketPcs > 0) {
-          let response = await this.$axios.post(
-            "/api/ticket/generateOffTicket",
-            {
-              userId: this.$auth.state.user._id,
-              drawId: this.$route.params.id,
-              ticketPcs: this.ticketPcs,
-            }
-          );
+          let response = await this.$axios.post("/api/ticket-generate", {
+            userId: this.$auth.state.user._id,
+            drawId: this.$route.params.id,
+            ticketPcs: this.ticketPcs,
+          });
 
           this.showModal = false;
           response.data.tickets.forEach((element) => {
@@ -509,7 +506,7 @@ export default {
       };
 
       let response = await this.$axios.post(
-        "/api/ticket/generatePdf",
+        "https://meditationgrdn-raffle-app-api.herokuapp.com/api/ticket/generatePdf",
         {
           docDefinition: docDefinition,
         },
@@ -832,7 +829,7 @@ export default {
         content: [ticketsContents],
       };
       let response = await this.$axios.post(
-        "/api/ticket/generatePdf",
+        "https://meditationgrdn-raffle-app-api.herokuapp.com/api/ticket/generatePdf",
         {
           docDefinition: docDefinition,
         },
@@ -855,7 +852,7 @@ export default {
   },
   async created() {
     let response = await this.$axios.get(
-      "/api/ticket/getAllByDraw/" + this.$route.params.id
+      "/api/ticket-byDraw?id=" + this.$route.params.id
     );
     response.data.tickets.forEach((element) => {
       element.phone = element.user?.contact ?? "";
