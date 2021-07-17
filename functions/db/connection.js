@@ -1,9 +1,12 @@
 const mongoose = require('mongoose');
 let MONGO_URI;
+require('dotenv').config()
+
+console.log(process.env.NODE_ENV)
 if (process.env.NODE_ENV === 'production') {
-    MONGO_URI = 'mongodb+srv://yamamz:Maimai011385@cluster0.b4ksj.mongodb.net/draw?retryWrites=true&w=majority'
+    MONGO_URI = process.env.PRODUCTION_URI
 } else {
-    MONGO_URI = 'mongodb+srv://yamamz:Maimai011385@cluster0.b4ksj.mongodb.net/draw_test?retryWrites=true&w=majority'
+    MONGO_URI = process.env.DEVELOPMENT_URI
 }
 
 
